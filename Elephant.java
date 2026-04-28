@@ -16,11 +16,11 @@ public class Elephant extends Actor
     {
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-1);
+            move(-2);
         }
         else if (Greenfoot.isKeyDown("right"))
         {
-            move(1);
+            move(2);
         }
         
         eat();
@@ -36,6 +36,7 @@ public class Elephant extends Actor
             removeTouching(Apple.class);
             MyWorld world = (MyWorld) getWorld(); //calls an instance of world that the object lives in
             world.createApple();
+            world.increaseScore();
         }
         
     }

@@ -16,6 +16,14 @@ public class MyWorld extends World {
         createApple();
     }
     
+    
+    //Game over. End the game and draw "GanemOver"
+    public void gameOver()
+    {
+        Label gameOverLabel = new Label("Game Over", 100);
+        addObject(gameOverLabel, 300, 200);
+        
+    }
     /**
      * Increase score
      */
