@@ -4,7 +4,7 @@ public class MyWorld extends World {
     public int score = 0;
     Label scoreLabel;
     public MyWorld() {
-        super(600, 400, 1);
+        super(600, 400, 1, false);
           
         Elephant elephant = new Elephant();
         addObject(elephant, 300 ,200);
