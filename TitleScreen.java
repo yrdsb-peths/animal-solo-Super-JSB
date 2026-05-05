@@ -32,6 +32,7 @@ public class TitleScreen extends World
         }
 
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -40,5 +41,14 @@ public class TitleScreen extends World
     {
         Elephant elephant = new Elephant();
         addObject(elephant,442,95);
+        elephant.setLocation(492,127);
+        Label label = new Label("Press <space> to start", 55);
+        addObject(label,195,222);
+        label.setLocation(323,222);
+        label.setLocation(273,226);
+        label.setLocation(272,225);
+        Label label2 = new Label("use \u2190 and \u2192 to move", 50);
+        addObject(label2,192,320);
+        label2.setLocation(292,320);
     }
 }
