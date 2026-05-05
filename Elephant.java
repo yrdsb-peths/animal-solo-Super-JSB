@@ -17,7 +17,7 @@ public class Elephant extends Actor
     GreenfootImage[] idleLeft = new GreenfootImage[8];
     //Direction 
     String facing = "right";
-    
+    SimpleTimer animationTimer = new SimpleTimer();
     
     public Elephant ()
     {
@@ -29,11 +29,13 @@ public class Elephant extends Actor
         for(int i = 0; i < idleLeft.length; i++)
         {
             idleLeft[i] = new GreenfootImage("images/elephant_idle/idle" + i + ".png");
-            idleLeft[i] = idleLeft[i].mirrorHorizontally();
+            idleLeft[i].mirrorHorizontally();
     
             idleLeft[i].scale(100, 100);
             
         }
+        
+        animationTimer.mark();
         //initial elephant image
         setImage(idleRight[0]);
     }
@@ -44,6 +46,11 @@ public class Elephant extends Actor
     int imageIndex = 0;
     public void animateElephant()
     {
+        if(animationTimer.millisElapsed() < 1000)
+        {
+            return;
+        }
+        animationTimer.mark();
         if(facing.equals("right"))
         {
             setImage(idleRight[imageIndex]);
@@ -60,10 +67,12 @@ public class Elephant extends Actor
         if(Greenfoot.isKeyDown("left"))
         {
             move(-2);
+            facing = "left";
         }
         else if (Greenfoot.isKeyDown("right"))
         {
             move(2);
+            facing = "right";
         }
         
         eat();
